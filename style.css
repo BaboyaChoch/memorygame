@@ -1,0 +1,49 @@
+.level_tracker{
+
+    
+
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 550;
+    right: 500;
+    color: orangered;
+    font-size: 30px;
+    font-family: 
+}
+
+.board {
+
+    display:grid;
+    grid-template-columns: auto auto auto auto;
+
+    gap: 2px;
+
+    margin:  auto;
+    width: 820px;
+    height: 820px;
+
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    
+    border-radius: 5px;
+    background-color: orangered;
+}
+
+
+.square {
+
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 200px;
+    height: 200px; 
+    background-color: rgb(89, 206, 236);
+
+}
+
+/* create a keyframe that changes the color from current to another
+    create the animation within this key frame
+ */

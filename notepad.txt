@@ -1,0 +1,51 @@
+<div id="square" class="column1"></div>
+            <div id="square" class="column1"></div>
+            <div id="square" class="column1"></div>
+            <div id="square" class="column1"></div>
+
+            <div id="square" class="column2"></div>
+            <div id="square" class="column2"></div>
+            <div id="square" class="column2"></div>
+            <div id="square" class="column2"></div>
+
+            <div id="square" class="column3"></div>
+            <div id="square" class="column3"></div>
+            <div id="square" class="column3"></div>
+            <div id="square" class="column3"></div>
+
+            <div id="square" class="column4"></div>
+            <div id="square" class="column4"></div>
+            <div id="square" class="column4"></div>
+            <div id="square" class="column4"></div>
+
+
+
+sq.onmousedown = function (){
+    let curr_color = this.style.backgroundColor;
+
+    if (this.style.backgroundColor === curr_color)
+        this.style.backgroundColor = 'orange';
+    else
+        this.style.backgroundColor = curr_color;
+}
+
+	<div class="square [0,0]"></div>
+            <div class="square [0,1]"></div>
+            <div class="square [0,2]"></div>
+            <div class="square [0,3]"></div>
+
+            <div class="square [1,0]"></div>
+            <div class="square [1,1]"></div>
+            <div class="square [1,2]"></div>
+            <div class="square [1,3]"></div>
+
+            <div class="square [2,0]"></div>
+            <div class="square [2,1]"></div>
+            <div class="square [2,2]"></div>
+            <div class="square [2,3]"></div>
+
+            <div class="square [2,0]"></div>
+            <div class="square [2,1]"></div>
+            <div class="square [2,2]"></div>
+            <div class="square [2,3]"></div>
+    height: 200px; (89, 206, 236
