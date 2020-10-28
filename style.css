@@ -1,12 +1,10 @@
 .level_tracker{
 
-    
-
     position: relative;
     top: 0;
     bottom: 0;
-    left: 550;
-    right: 500;
+    left: 0;
+    right: 0;
     color: orangered;
     font-size: 30px;
     font-family: 
@@ -28,16 +26,16 @@
     bottom: 0px;
     left: 0px;
     right: 0px;
-    
+    /* background-color: orangered;*/
     border-radius: 5px;
-    background-color: orangered;
+    
 }
 
 
 .square {
 
     border: 1px solid black;
-    border-radius: 5px;
+    border-radius: 20px;
     width: 200px;
     height: 200px; 
     background-color: rgb(89, 206, 236);
@@ -46,4 +44,5 @@
 
 /* create a keyframe that changes the color from current to another
     create the animation within this key frame
+    background-color: orangered;
  */

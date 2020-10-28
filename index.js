@@ -5,6 +5,28 @@ let game_pattern = [];  // an array of random cordinates([r,c]) to by memorized,
 
 let game_level = 0;     // the current level of the game,leve dicatates the amount of squares to be choosen so max level is 16
 let run = false;
+let blocks = document.getElementsByClassName("square")
+
+
+flipBlock = function(block){
+    block.onclick = function(){ 
+        let curr = 'rgb(89, 206, 236)'; 
+  
+        if(this.style.background == curr)
+            this.style.background = 'white';
+        else
+            this.style.background = curr;  
+    }
+}
+
+flipBlock(blocks[0]);
+flipBlock(blocks[1]);
+flipBlock(blocks[2]);
+flipBlock(blocks[3]);
+flipBlock(blocks[4]);
+flipBlock(blocks[5]);
+flipBlock(blocks[6]);
+
 
 function start()
 {
@@ -23,10 +45,24 @@ function end()
 function play(level)
 {
     //based on the level choose {level} number of coordinates and store it in {game_pattern}
-
+    let current = 0;
+    while(current < level)
+    {
+        random_pattern.push(`[${Math.ceil(Math.random()*5-1)},${Math.ceil(Math.random()*5-1)}]`);
+        curr++;
+    }
     // flip all squares from {game_pattern} to color: black? 
         // pause, then flip them all back to default color: blue
 
+    current = 0;
+    //listen for click events
+    while(current < level )
+    {
+        if($(".square".click(function(){ return this.id})) === random_pattern[current]) 
+            current++ 
+        else
+            end()
+    }
     //ask for the user to input their answer
         //while they answer check to see if they mess up at every step {if id of square they click == game_pattern[i]}
             //if they mess up
@@ -38,25 +74,15 @@ function game()
 {
     while(run)
     {
-        play(level);
+        //play(level);
     }
 
 }
 
-
-
-updateboard = function () {
-
-    for(let r = 0; r<4; r++){
-        for(let c = 0; c<4; c++){
-            document.getElementById(`[${r},${c}]`).style.backgroundColor = 'black';
-    }
-}
-
-}
 
 function main()
 {
    
 }
+
 
