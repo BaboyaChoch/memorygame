@@ -1,5 +1,5 @@
 .level_tracker{
-
+    
     position: relative;
     top: 0;
     bottom: 0;
@@ -44,5 +44,4 @@
 
 /* create a keyframe that changes the color from current to another
     create the animation within this key frame
-    background-color: orangered;
  */
