@@ -1,44 +1,48 @@
-.level_tracker{
-    
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
+
+header {
     position: relative;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    color: orangered;
-    font-size: 30px;
-   
 }
 
+header > h1{
+
+    font-size: 45px;
+    text-align: center;
+    top: 10px;
+    color: orangered;
+    font-family: Comfortaa;
+}
+
+body {
+  
+
+}
 .board {
 
     display:grid;
     grid-template-columns: auto auto auto auto;
-
     gap: 2px;
-
-    margin:  auto;
+   
+    margin: auto auto;
     width: 820px;
     height: 820px;
-
-    position: absolute;
+    position: relative;
     top: 0px;
     bottom: 0px;
     left: 0px;
     right: 0px;
-    /* background-color: orangered;*/
-    border-radius: 5px;
-    
+
+  
 }
 
 
 .square {
 
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 20px;
     width: 200px;
     height: 200px; 
-    background-color: rgb(89, 206, 236);
+    background-color: #59ceec;
 
 }
 
