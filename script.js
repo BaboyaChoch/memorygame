@@ -4,14 +4,24 @@ let defaultBlockColor = '#59ceec';
 
 
 
-function flipAnimation(block) {
+function flipAnimation(square) {
     anime({
-        targets: block,
-        rotateY: 180,
-        backgroundColor: '#ff6600',
-        duration: 2000
-      });
+        targets: square,
+        scale: [{value: 1}, {value: 1.2}, {value: 1, delay: 200}],
+        rotateY: {value: '180', delay: 150},
+        backgroundColor: [
+            {value: '#ffcc66'},
+            {value: '#ff6600'}
+          ],
+        easing: 'easeInOutSine',
+        duration: 400
+      });   
 }
+
+//have a seperate anime for when the user answers
+//have the backgroundColor transition like the above
+//make the middle value green if its correct
+//make the middle value red if its wrong
 
 function start()
 {
@@ -37,7 +47,7 @@ function play(level)
     choosePattern =  function() {
         if(current < level)
         {
-            let square = `[${Math.ceil(Math.random()*4-1)},${Math.ceil(Math.random()*4-1)}]`;
+            let square = document.getElementById(`[${Math.ceil(Math.random()*4-1)},${Math.ceil(Math.random()*4-1)}]`);
           
             if(!gamePattern.includes(square)){ 
 
@@ -63,17 +73,28 @@ function play(level)
         console.log(index);
         if(index < level)
         {           
-            flipAnimation(document.getElementById(gamePattern[index]));
+            flipAnimation(gamePattern[index]);
             index++;
         }
-        else
+        else{
             clearInterval(revealPattern);
+
+            for(let  i = 0; i < level; i++)
+            {
+                gamePattern[i].style.background = 'red';
+                console.log(gamePattern[i].style.background)
+                console.log(gamePattern[i])
+            }
+
+            //gamePattern.forEach((block) => { block.style.background = 'red';});
+            
+        }
+            
        
     }
     , 600)
 
-    //reset the board to default;
-
+  
 
 
     //listen for click events
@@ -97,7 +118,7 @@ function play(level)
 
 function game()
 {
-    let game_level = 16; //current level of the game ***note: the level is also the number of squares to be flipped"
+    let game_level = 5; //current level of the game ***note: the level is also the number of squares to be flipped"
     let run = true;
 
     play(game_level);

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@700&family=Russo+One&display=swap');
 
 header {
     position: relative;
@@ -6,17 +6,13 @@ header {
 
 header > h1{
 
-    font-size: 45px;
+    font-size: 50px;
     text-align: center;
     top: 10px;
-    color: orangered;
-    font-family: Comfortaa;
+    color: #ff6600;
+    font-family: Goldman;
 }
 
-body {
-  
-
-}
 .board {
 
     display:grid;
@@ -24,25 +20,24 @@ body {
     gap: 2px;
    
     margin: auto auto;
-    width: 820px;
-    height: 820px;
+    width: 700px;
+    height: 700px;
     position: relative;
     top: 0px;
     bottom: 0px;
     left: 0px;
     right: 0px;
 
-  
 }
 
 
 .square {
 
-    border: 2px solid black;
-    border-radius: 20px;
-    width: 200px;
-    height: 200px; 
-    background-color: #59ceec;
+    border: 2px solid white;
+    border-radius: 25px;
+    width: 175px;
+    height: 175px; 
+    background-color: #00ccff;
 
 }
 
