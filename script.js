@@ -3,8 +3,14 @@ let levelTracker = document.getElementById("levelTracker"); //level counter
 let defaultBlockColor = '#59ceec';
 
 
-function flipAnimation(block) {
 
+function flipAnimation(block) {
+    anime({
+        targets: block,
+        rotateY: 180,
+        backgroundColor: '#ff6600',
+        duration: 2000
+      });
 }
 
 function start()
@@ -57,7 +63,6 @@ function play(level)
         console.log(index);
         if(index < level)
         {           
-            document.getElementById(gamePattern[index]).style.background = 'orange';
             flipAnimation(document.getElementById(gamePattern[index]));
             index++;
         }
@@ -92,13 +97,14 @@ function play(level)
 
 function game()
 {
-    let game_level = 10; //current level of the game ***note: the level is also the number of squares to be flipped"
+    let game_level = 16; //current level of the game ***note: the level is also the number of squares to be flipped"
     let run = true;
 
     play(game_level);
 
 
 } 
+
 
 game();
 
