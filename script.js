@@ -2,39 +2,10 @@ let blocks = document.getElementsByClassName("square") //array of square divs, b
 let levelTracker = document.getElementById("levelTracker"); //level counter
 let defaultBlockColor = '#59ceec';
 
-/* flipBlock = function(blocks){
-    block.onclick = function(){ 
-        let curr = 'rgb(89, 206, 236)'; 
-  
-        if(this.style.background == curr)
-            this.style.background = 'white';
-        else
-            this.style.background = curr;  
-    }
-} */
 
-flip = function(arrayOfBlocks, game_level){
+function flipAnimation(block) {
 
-    let currentBlock = 0;
-
-    while(currentBlock < game_level)
-    {
-        setTimeout( function() 
-            { document.getElementById(arrayOfBlocks[currentBlock]).style.background = 'green'}, 
-            500)
-        currentBlock++;
-    }
-        
 }
-
-/* flipBlock(blocks[0]);
-flipBlock(blocks[1]);
-flipBlock(blocks[2]);
-flipBlock(blocks[3]);
-flipBlock(blocks[4]);
-flipBlock(blocks[5]);
-flipBlock(blocks[6]); */
-
 
 function start()
 {
@@ -87,6 +58,7 @@ function play(level)
         if(index < level)
         {           
             document.getElementById(gamePattern[index]).style.background = 'orange';
+            flipAnimation(document.getElementById(gamePattern[index]));
             index++;
         }
         else
