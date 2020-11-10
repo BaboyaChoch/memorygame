@@ -1,6 +1,3 @@
-let defaultBlockColor = '#00ccff';
-
-
 function flipAnimation(square) {
     anime({
         targets: square,
