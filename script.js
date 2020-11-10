@@ -1,7 +1,6 @@
 let defaultBlockColor = '#00ccff';
 
 
-//animation for pattern reveal
 function flipAnimation(square) {
     anime({
         targets: square,
@@ -16,7 +15,7 @@ function flipAnimation(square) {
       });   
 }
 
-//reset animation
+
 function resetBoardAnimation(square) {
     anime({
         targets: square,
@@ -31,7 +30,6 @@ function resetBoardAnimation(square) {
       });   
 }
 
-//animation for pattern reveal
 function correctAnswerAnimation(square) {
     anime({
         targets: square,
@@ -46,7 +44,6 @@ function correctAnswerAnimation(square) {
       });   
 }
 
-//animation for wrong answer choice
 function wrongAnswerAnimation(square) {
     anime({
         targets: square,
@@ -59,11 +56,6 @@ function wrongAnswerAnimation(square) {
 }
 
 
-//have a seperate anime for when the user answers
-//have the backgroundColor transition like the above
-//make the middle value green if its correct
-//make the middle value red if its wrong
-
 function start()
 {
     //button to start game
@@ -74,12 +66,10 @@ function start()
 function end()
 {
     //display score and say game over message
-    //button to reset to start screen
-        
+    //button to reset to start screen  
 }
 
 function play(level)
-
 {
 
     setTimeout( () => gamePattern.forEach((block) => { block.style.background = '#00ccff';}), 500);
@@ -166,22 +156,16 @@ function play(level)
         element.addEventListener('click', checkAnswer);
       });
   
-    //ask for the user to input their answer
-        //while they answer check to see if they mess up at every step {if id of square they click == game_pattern[i]}
-            //if they mess up
-                //end()
-            //else 
-                //continue game
-                //update level 
-
 }
 
 function game()
 {
-    let game_level = 1; //current level of the game ***note: the level is also the number of squares to be flipped"
-    let run = true;
-    console.log(play(game_level));
-    
+    //current level of the game 
+    //***note: the level is also the length of the pattern to be memorized
+    let game_level = 1; 
+    let run = false;
+
+    play(game_level);
 } 
 
 
