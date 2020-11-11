@@ -1,14 +1,14 @@
 function flipAnimation(square) {
     anime({
         targets: square,
-        scale: [{value: 1}, {value: 1.3}, {value: 1}],
-        rotateY: {value: '180'},
+        scale: [{value: 1}, {value: 1.15}, {value: 1, delay: 250}],
+        rotateY: {value: '+=180',dealy: 200},
         backgroundColor: [
             {value: '#ffcc66'},
             {value: '#ff6600'}
           ],
         easing: 'easeInOutSine',
-        duration: 500
+        duration: 300
       });   
 }
 
@@ -16,39 +16,39 @@ function flipAnimation(square) {
 function resetBoardAnimation(square) {
     anime({
         targets: square,
-        scale: [{value: 1}, {value: 1.3}, {value: 1, delay: 200}],
-        rotateY: {value: '180', delay: 150},
+        scale: [{value: 1}, {value: 1.3}, {value: 1, delay: 250}],
+        rotateY: {value: '-=180', delay: 200},
         backgroundColor: [
             {value: '#66ffff'},
             {value: '#00ccff'}
           ],
         easing: 'easeInOutSine',
-        duration: 500
+        duration: 300
       });   
 }
 
 function correctAnswerAnimation(square) {
     anime({
         targets: square,
-        scale: [{value: 1}, {value: 1.2}, {value: 1, delay: 200}],
-        rotateY: {value: '180', delay: 150},
+        scale: [{value: 1}, {value: 1.2}, {value: 1, delay: 250}],
+        rotateY: {value: '+=180', delay: 200},
         backgroundColor: [
             {value: '#00ff00'},
             {value: '#ff6600'}
           ],
         easing: 'easeInOutSine',
-        duration: 100
+        duration: 300
       });   
 }
 
 function wrongAnswerAnimation(square) {
     anime({
         targets: square,
-        scale: [{value: 1}, {value: 1.2}, {value: 1, delay: 200}],
-        rotateY: {value: '180', delay: 150},
+        scale: [{value: 1}, {value: 1.2}, {value: 1, delay: 250}],
+        rotateY: {value: '+=180', delay: 200},
         backgroundColor: '#ff0000',
         easing: 'easeInOutSine',
-        duration: 400
+        duration: 300
       });   
 }
 
@@ -100,7 +100,6 @@ function play(level)
     }
 
     choosePattern();
-  
     //reveal the pattern to be memorized to the user
     let index = 0;
 
@@ -119,34 +118,33 @@ function play(level)
         }      
        
     }
-    , (500 + (level)**2))
+    , (500));
+   
+    let currentIndex =  0;
 
-    let currentIndex = 0;
-    let checkAnswer = function() {
-        let square = document.getElementById(this.getAttribute("id"));
+    function checkAnswer() {
+        
+        let block = document.getElementById(this.getAttribute("id"));
+        if(block === gamePattern[currentIndex]){
 
-        if(this.getAttribute("id") === gamePattern[currentIndex].getAttribute("id")){
-            correctAnswerAnimation(square);
+            correctAnswerAnimation(block);
             currentIndex++;
 
             if(currentIndex === level){
-                gamePattern.forEach((block) => { resetBoardAnimation(square)});
-                setTimeout(play(level+1), 1000);
+
+                setTimeout(() => {Array.from(blocks).forEach( (block) => resetBoardAnimation(block));}, 760);
                 
             }
-                
         }
+
         else{
-           wrongAnswerAnimation(square);
-
-           setTimeout(() => {
-            Array.from(blocks).forEach( (element) => {resetBoardAnimation(element)});
-          }, 100);
-
-          play(1);
-
+            
+            wrongAnswerAnimation(block);
+            setTimeout(()=>{
+                Array.from(blocks).forEach( (block) => resetBoardAnimation(block));
+            }, 760);
         }
-    };
+    }
 
     //listening for click events
     Array.from(blocks).forEach(function(element) {
@@ -155,16 +153,18 @@ function play(level)
   
 }
 
+
+play(1);
+
 function game()
 {
     //current level of the game 
     //***note: the level is also the length of the pattern to be memorized
-    let game_level = 1; 
-    let run = false;
-
-    play(game_level);
+    let game_level = 2; 
+    let run = false
+    
 } 
 
 
-game();
+
 
