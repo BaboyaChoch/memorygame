@@ -90,7 +90,7 @@ function play(level)
             console.log(currentIndex)
             if(currentIndex === level){
 
-                if(level == 2)
+                if(false)
                 {
                     document.body.style.display = 'none';
                     document.getElementById('endMessage').style.display = 'none';
