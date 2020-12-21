@@ -89,10 +89,20 @@ function play(level)
             currentIndex++;
             console.log(currentIndex)
             if(currentIndex === level){
-                reset(++level, gamePattern);
-            }
-        }
 
+                if(level == 2)
+                {
+                    document.body.style.display = 'none';
+                    document.getElementById('endMessage').style.display = 'none';
+                }
+                else{
+                    reset(++level, gamePattern);
+    
+                }
+    
+            }      
+               
+        }
         else{
 
             flipAnimation(block, [{value: '#ff5050'}, {value: '#ff0000'}],'+=180')
