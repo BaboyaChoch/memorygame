@@ -1,75 +1,16 @@
-function flipAnimation(square) {
+function flipAnimation(square,colorChange,rotation) {
     anime({
         targets: square,
         scale: [{value: 1}, {value: 1.15}, {value: 1, delay: 250}],
-        rotateY: {value: '+=180',dealy: 200},
-        backgroundColor: [
-            {value: '#ffcc66'},
-            {value: '#ff6600'}
-          ],
+        rotateY: {value: rotation,dealy: 200},
+        backgroundColor: colorChange,
         easing: 'easeInOutSine',
         duration: 300
       });   
-}
-
-
-function resetBoardAnimation(square) {
-    anime({
-        targets: square,
-        scale: [{value: 1}, {value: 1.3}, {value: 1, delay: 250}],
-        rotateY: {value: '-=180', delay: 200},
-        backgroundColor: [
-            {value: '#66ffff'},
-            {value: '#00ccff'}
-          ],
-        easing: 'easeInOutSine',
-        duration: 300
-      });   
-}
-
-function correctAnswerAnimation(square) {
-    anime({
-        targets: square,
-        scale: [{value: 1}, {value: 1.2}, {value: 1, delay: 250}],
-        rotateY: {value: '+=180', delay: 200},
-        backgroundColor: [
-            {value: '#00ff00'},
-            {value: '#ff6600'}
-          ],
-        easing: 'easeInOutSine',
-        duration: 300
-      });   
-}
-
-function wrongAnswerAnimation(square) {
-    anime({
-        targets: square,
-        scale: [{value: 1}, {value: 1.2}, {value: 1, delay: 250}],
-        rotateY: {value: '+=180', delay: 200},
-        backgroundColor: '#ff0000',
-        easing: 'easeInOutSine',
-        duration: 300
-      });   
-}
-
-
-function start()
-{
-    //button to start game
-        //if clicked call {game()}
-}
-
-
-function end()
-{
-    //display score and say game over message
-    //button to reset to start screen  
 }
 
 function play(level)
 {
-
-    setTimeout( () => gamePattern.forEach((block) => { block.style.background = '#00ccff';}), 500);
 
     let levelTracker = document.getElementById("levelTracker"); //level counter
     let blocks = document.getElementsByClassName("square") //array of square divs, blocks on the board.
@@ -107,42 +48,56 @@ function play(level)
 
         if(index < level)
         {           
-            flipAnimation(gamePattern[index]);
+            flipAnimation(gamePattern[index],[{value: '#ffcc66'},{value: '#ff6600'}], '+=180');
             index++;
         }
         else{
             clearInterval(revealPattern);
             //reseting tod default board state
-            gamePattern.forEach((block) => { resetBoardAnimation(block)});
+            gamePattern.forEach((block) => { flipAnimation(block, [{value: '#66ffff'},{value: '#00ccff'}],'-=180')});
 
         }      
        
     }
     , (500));
+    clearInterval();
+
+    //resets the board to the given level
+    function reset(level, arrOfDivs){
+
+        Array.from(blocks).forEach(function(element) {
+            element.removeEventListener('click', checkAnswer);
+          });
+
+        setTimeout(() => {
+            Array.from(arrOfDivs).forEach( (block) => flipAnimation(block, [{value: '#66ffff'},{value: '#00ccff'}],'-=180'));
+            setTimeout( () => {play(level)}, 500);
+        }, 
+        760);
+    }
    
     let currentIndex =  0;
 
     function checkAnswer() {
         
         let block = document.getElementById(this.getAttribute("id"));
+        console.log(gamePattern[currentIndex])
+
         if(block === gamePattern[currentIndex]){
-
-            correctAnswerAnimation(block);
+            console.log('right')
+            flipAnimation(block, [{value: '#00ff00'}, {value: '#ff6600'}],'+=180')
             currentIndex++;
-
+            console.log(currentIndex)
             if(currentIndex === level){
-
-                setTimeout(() => {Array.from(blocks).forEach( (block) => resetBoardAnimation(block));}, 760);
-                
+                reset(++level, gamePattern);
             }
         }
 
         else{
+
+            flipAnimation(block, [{value: '#ff5050'}, {value: '#ff0000'}],'+=180')
+            reset(1, blocks);
             
-            wrongAnswerAnimation(block);
-            setTimeout(()=>{
-                Array.from(blocks).forEach( (block) => resetBoardAnimation(block));
-            }, 760);
         }
     }
 
@@ -153,17 +108,9 @@ function play(level)
   
 }
 
-
 play(1);
 
-function game()
-{
-    //current level of the game 
-    //***note: the level is also the length of the pattern to be memorized
-    let game_level = 2; 
-    let run = false
-    
-} 
+
 
 
 
