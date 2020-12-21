@@ -81,16 +81,13 @@ function play(level)
     function checkAnswer() {
         
         let block = document.getElementById(this.getAttribute("id"));
-        console.log(gamePattern[currentIndex])
 
         if(block === gamePattern[currentIndex]){
-            console.log('right')
             flipAnimation(block, [{value: '#00ff00'}, {value: '#ff6600'}],'+=180')
             currentIndex++;
-            console.log(currentIndex)
             if(currentIndex === level){
 
-                if(false)
+                if(1 == 2)
                 {
                     document.body.style.display = 'none';
                     document.getElementById('endMessage').style.display = 'none';
