@@ -11,5 +11,4 @@ Order Matters!
 [Click Here to Test Yourself!](https://baboyachoch.github.io/memorygame/)
 
 
-Icon created by Freepik from FlatIcon
 
