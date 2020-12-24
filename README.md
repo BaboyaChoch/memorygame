@@ -9,4 +9,4 @@ Order Matters!
 [Click Here to Test Yourself!!](https://baboyachoch.github.io/memorygame/])
 
 
-<p style="color: red">Icon created by Freepik from FlatIcon </p>
+<span style="color:red">Icon created by Freepik from FlatIcon </span>
