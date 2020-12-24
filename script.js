@@ -1,3 +1,4 @@
+
 function flipAnimation(square,colorChange,rotation) {
     anime({
         targets: square,
@@ -53,7 +54,7 @@ function play(level)
         }
         else{
             clearInterval(revealPattern);
-            //reseting tod default board state
+            //reseting to default board state
             gamePattern.forEach((block) => { flipAnimation(block, [{value: '#66ffff'},{value: '#00ccff'}],'-=180')});
 
         }      
@@ -87,14 +88,23 @@ function play(level)
             currentIndex++;
             if(currentIndex === level){
 
-                if(1 == 2)
-                {
-                    document.body.style.display = 'none';
-                    document.getElementById('endMessage').style.display = 'none';
+                if(level === 16){
+
+                    confetti.start();
+                    
+                    document.getElementById("gameBoard").style.display = "none";
+                    document.getElementById("levelTracker").style.display = "none";
+
+                    playAgain = () => { location.reload();}
+
+                    let endMess = document.getElementById('gg');
+
+                    endMess.innerHTML = 'You Won!! <button type="button" id="resetBtn" oncliCK="playAgain()">Play Again</button>';
+                    endMess.style = "display: grid; position: absolute; top: 40%; left: 35%; font-size:100px; color: #ff6600; font-family: Goldman";
+                    document.getElementById('resetBtn').style = "position: relative; left: 35%; font-size: 20px; font-family: Goldman; color:#00ccff; width: 200px; border-radius:10px"
                 }
                 else{
                     reset(++level, gamePattern);
-    
                 }
     
             }      
