@@ -1,5 +1,15 @@
 # memorygame
 
-## Objective
+Memorization game played on a 4x4 grid.
 
-Each round the user must memorize the pattern and repeat on the given grid
+The number of blocks to be memorized is equal to the level.
+
+Goal is to completee all 16 levels.
+
+Order Matters!
+
+[Click Here to Test Yourself!](https://baboyachoch.github.io/memorygame/)
+
+
+Icon created by Freepik from FlatIcon
+
