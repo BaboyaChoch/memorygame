@@ -9,5 +9,5 @@ Order Matters!
 [Click Here to Test Yourself!!](https://baboyachoch.github.io/memorygame/])
 
 
-<span style="color:red">Icon created by Freepik from FlatIcon </span>
-I am in <span style="font-family:Papyrus; font-size:4em;color:'red';">LOVE!</span>
+######### Icon created by Freepik from FlatIcon
+
