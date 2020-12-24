@@ -88,7 +88,7 @@ function play(level)
             currentIndex++;
             if(currentIndex === level){
 
-                if(level === 16){
+                if(level === 1){
 
                     confetti.start();
                     
