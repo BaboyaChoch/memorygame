@@ -36,6 +36,12 @@ header > h1{
 
 }
 
+#credit {
+    font-size: 10px;
+    position: absolute;
+    right: 1%;
+    bottom: 0%;
+}
 /* create a keyframe that changes the color from current to another
     create the animation within this key frame
  */
